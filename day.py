@@ -7,6 +7,8 @@ class Day:
 		if os.path.isfile(input_path):
 			with open(input_path) as f:
 				self.data = f.read()
+			self.part1 = 0
+			self.part2 = 0
 		else:
 			print(f'Missing file {os.path.join(child_name[0], "inputs", child_name[2])}.txt')
 
