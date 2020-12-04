@@ -4,7 +4,6 @@ class Day3(Day):
 	def __init__(self):
 		super().__init__(__name__)
 		self.data = [[x for x in l] for l in self.data.split('\n')]
-
 		self.part1 = 0
 		self.part2 = 1
 	
