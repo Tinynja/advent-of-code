@@ -21,7 +21,7 @@ class Day8(Day):
 				# Copy original data so that we can modify instructions
 				code = deepcopy(self.data)
 				# Swap instructions
-				code[addr]['inst'] = ('nop', 'jmp')[code[addr]['inst'] == 'nop']
+				code[addr]['inst'] = 'jmp' if code[addr]['inst'] == 'nop' else 'nop'
 				exit_status, acc = self.exec_code(code, copy_code=False)
 				if exit_status == 0:
 					self.part2 = acc
