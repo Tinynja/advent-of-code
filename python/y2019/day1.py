@@ -1,14 +1,17 @@
-from day import Day
+# Builtin
 from math import floor
 
-class Day1(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = list(map(int, self.data.split()))
-		self.part1 = 0
-		self.part2 = 0
 	
 	def solve1(self):
+		self.part1 = 0
+		self.part2 = 0
 		for mass in self.data:
 			self.part1 += self.calc_fuel(mass)
 			self.part2 += self.calc_fuel(mass, ignore_fuel_mass=False)

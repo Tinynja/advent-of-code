@@ -1,8 +1,9 @@
-from day import Day
+# Local
+from ..solver import SolverABC
 
-class Day3(Day):
-	def __init__(self):
-		super().__init__(__name__)
+
+class Solver(SolverABC):
+	def init(self):
 		self.wire1, self.wire2 = [[d for d in w.split(',')] for w in self.data.split('\n')]
 
 	def solve1(self):
@@ -14,6 +15,9 @@ class Day3(Day):
 		for i in intersections:
 			if self.part1 is None or abs(i[0])+abs(i[1]) < self.part1:
 				self.part1 = abs(i[0])+abs(i[1])
+	
+	def solve2(self):
+		...
 
 	def generate_path(self, directions, compare_path=None):
 		x,y,path,intersections = 0,0,[],[]

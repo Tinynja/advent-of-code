@@ -1,10 +1,15 @@
-from day import Day
-import numpy as np
-from copy import deepcopy
+# Builtin
+# from copy import deepcopy
 
-class Day10(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Pypi
+import numpy as np
+
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = list(map(int, self.data.splitlines()))
 		self.data.sort()
 	
@@ -33,4 +38,3 @@ class Day10(Day):
 		# 	if i > 1 and data[i-1]:
 
 		# 	i += 1
-

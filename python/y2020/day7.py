@@ -1,26 +1,28 @@
-from day import Day
+# Builtin
 import re
 
-class Day7(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = self.data.split('\n')
+
 		self.rules = {}
-		self.read_rules()
+		for r in self.data:
+			bag_type = re.match(r'([a-z ]+) bags contain', r).group(1)
+			bag_contents = {g[1]:int(g[0]) for g in re.findall(r'(\d+) ([a-z ]+) bags?', r)}
+			self.rules[bag_type] = bag_contents
 	
 	def solve1(self):
+		self.part1 = 0
 		for b in self.rules:
 			if b != 'shiny gold' and self.search_bag(b, 'shiny gold'):
 				self.part1 += 1
 	
 	def solve2(self):
 		self.part2 = self.count_bags('shiny gold')-1
-
-	def read_rules(self):
-		for r in self.data:
-			bag_type = re.match(r'([a-z ]+) bags contain', r).group(1)
-			bag_contents = {g[1]:int(g[0]) for g in re.findall(r'(\d+) ([a-z ]+) bags?', r)}
-			self.rules[bag_type] = bag_contents
 
 	def search_bag(self, container_bag, bag_to_search):
 		for b in self.rules[container_bag]:

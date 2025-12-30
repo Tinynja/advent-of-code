@@ -1,20 +1,23 @@
-from day import Day
+# Builtin
 import re
 
-class Day4(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = [{d.split(':')[0]:d.split(':')[1] for d in passwd.split()} for passwd in self.data.split('\n\n')]
 		self.required_fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
-		self.part1 = 0
-		self.part2 = 0
 	
 	def solve1(self):
+		self.part1 = 0
 		for p in self.data:
 			if all([req_f in list(p) for req_f in self.required_fields]):
 				self.part1 += 1
 
 	def solve2(self):
+		self.part2 = 0
 		for p in self.data:
 			self.part2 += 1
 			for req_f in self.required_fields:

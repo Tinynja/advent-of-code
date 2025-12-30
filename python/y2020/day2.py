@@ -1,14 +1,17 @@
-from day import Day
+# Builtin
 import re
 
-class Day2(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = self.data.split('\n')
-		self.part1 = 0
-		self.part2 = 0
 	
 	def solve1(self):
+		self.part1 = 0
+		self.part2 = 0
 		for d in self.data:
 			n1, n2, char, passwd = self.split_data(d)
 			result_1 = len(re.findall(char, passwd))

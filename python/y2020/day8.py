@@ -1,10 +1,13 @@
-from day import Day
-from copy import deepcopy
+# Builtin
 import re
+from copy import deepcopy
 
-class Day8(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		data = self.data
 		self.data = []
 		for d in data.splitlines():

@@ -1,10 +1,11 @@
-from day import Day
+# Builtin
 import hashlib
 
-class Day4(Day):
-	def __init__(self):
-		super().__init__(__name__)
-	
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
 	def solve1(self):
 		while True:
 			self.part1 += 1

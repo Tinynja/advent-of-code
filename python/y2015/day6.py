@@ -1,10 +1,15 @@
-from day import Day
-import numpy as np
+# Builtin
 import re
 
-class Day6(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Pypi
+import numpy as np
+
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		interpreted_data = []
 		for line in self.data.split('\n'):
 			if line.startswith('turn off'):

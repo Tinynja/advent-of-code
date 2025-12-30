@@ -1,9 +1,8 @@
-from day import Day
+# Local
+from ..solver import SolverABC
 
-class Day1(Day):
-	def __init__(self):
-		super().__init__(__name__)
-	
+
+class Solver(SolverABC):
 	def solve1(self):
 		for inst in self.data:
 			if inst == '(':

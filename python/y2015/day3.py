@@ -1,9 +1,8 @@
-from day import Day
+# Local
+from ..solver import SolverABC
 
-class Day3(Day):
-	def __init__(self):
-		super().__init__(__name__)
-	
+
+class Solver(SolverABC):
 	def solve1(self):
 		x,y = 0,0
 		houses = [[0,0]]

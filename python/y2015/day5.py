@@ -1,9 +1,12 @@
-from day import Day
+# Builtin
 import re
 
-class Day5(Day):
-	def __init__(self):
-		super().__init__(__name__)
+# Local
+from ..solver import SolverABC
+
+
+class Solver(SolverABC):
+	def init(self):
 		self.data = self.data.split('\n')
 	
 	def solve1(self):
